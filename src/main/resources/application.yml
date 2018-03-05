@@ -3,6 +3,7 @@ server:
 spring:
   profiles:
     active: jdbc
+# thymeleaf配置
   thymeleaf:
     prefix: classpath:/templates/
     check-template-location: true
@@ -11,6 +12,7 @@ spring:
     content-type: text/html
     mode: HTML5
     cache: false
+#mybatis配置
 mybatis:
   type-aliases-package: com.janti
   configuration:
