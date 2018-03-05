@@ -11,6 +11,11 @@ spring:
     content-type: text/html
     mode: HTML5
     cache: false
+mybatis:
+  type-aliases-package: com.janti
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 3000
 
-logging:
-  file: classpath:log.log
+
