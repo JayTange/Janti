@@ -27,25 +27,4 @@ public class CoreApplication {
         SpringApplication application = new SpringApplication(CoreApplication.class);
         application.run(args);
     }
-
-    @Bean
-    @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource dataSource(){
-        return new DruidDataSource();
-    }
-
-    //mybatis SQLSession注入
-    @Bean
-    public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource());
-        return sqlSessionFactoryBean.getObject();
-    }
-
-    //事务支持
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        return new DataSourceTransactionManager(dataSource());
-    }
-
 }
