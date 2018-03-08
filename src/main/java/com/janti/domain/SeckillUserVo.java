@@ -10,8 +10,6 @@ import java.util.Date;
 public class SeckillUserVo {
     // 用户ID，手机号码
     private Long id;
-    // 名称
-    private String nickname;
     // 密码
     private String password;
     // 盐值
@@ -22,8 +20,6 @@ public class SeckillUserVo {
     private Date registerDate;
     // 上此登录时间
     private Date lastLoginDate;
-    // 登录次数
-    private Integer loginCount;
 
     public Long getId() {
         return id;
@@ -31,14 +27,6 @@ public class SeckillUserVo {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
     }
 
     public String getPassword() {
@@ -81,25 +69,15 @@ public class SeckillUserVo {
         this.lastLoginDate = lastLoginDate;
     }
 
-    public Integer getLoginCount() {
-        return loginCount;
-    }
-
-    public void setLoginCount(Integer loginCount) {
-        this.loginCount = loginCount;
-    }
-
     @Override
     public String toString() {
         return "SeckillUserVo{" +
                 "id=" + id +
-                ", nickname='" + nickname + '\'' +
                 ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +
                 ", head='" + head + '\'' +
                 ", registerDate=" + registerDate +
                 ", lastLoginDate=" + lastLoginDate +
-                ", loginCount=" + loginCount +
                 '}';
     }
 }

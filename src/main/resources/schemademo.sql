@@ -99,12 +99,10 @@ CREATE TABLE `seckill_user` (
   `salt`            VARCHAR(10)  DEFAULT '1a2b3c4d',
   `head`            VARCHAR(128) DEFAULT NULL
   COMMENT '头像，云存储的ID',
-  `register_date`   DATETIME     DEFAULT NULL
+  `register_date`   TIMESTAMP     DEFAULT CURRENT_TIMESTAMP
   COMMENT '注册时间',
-  `last_login_date` DATETIME     DEFAULT NULL
+  `last_login_date` TIMESTAMP    DEFAULT CURRENT_TIMESTAMP
   COMMENT '上次登录时间',
-  `login_count`     INT(11)      DEFAULT 0
-  COMMENT '登录次数',
   PRIMARY KEY (`id`)
 )
   ENGINE = InnoDB
