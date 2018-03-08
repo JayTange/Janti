@@ -20,12 +20,38 @@ public class RedisDaoTest {
     @Autowired
     private RedisDao redisDao;
     @Test
-    public void testGet(){
-        redisDao.set(GoodsKey.getGoodsDetail,"aaaaa");
+    public void testSet(){
+        redisDao.set(GoodsKey.getGoodsDetail,"1",1);
     }
 
     @Test
-    public void testSet(){
-        redisDao.get(GoodsKey.getGoodsDetail,String.class);
+    public void testGet(){
+       Integer result =  redisDao.get(GoodsKey.getGoodsDetail,"1",Integer.class);
+        System.out.println("取出的结果为： "+result);
+    }
+
+    @Test
+    public void testExists(){
+        boolean result = redisDao.exists(GoodsKey.getGoodsDetail,"1");
+        System.out.println("是否存在："+result);
+    }
+
+    @Test
+    public void testDelete(){
+        redisDao.delete(GoodsKey.getGoodsDetail,"1");
+        boolean result = redisDao.exists(GoodsKey.getGoodsDetail,"1");
+        System.out.println("是否存在："+result);
+    }
+
+    @Test
+    public void testInsr(){
+        Long result = redisDao.incrVaule(GoodsKey.getGoodsDetail,"1");
+        System.out.println("增加后的值： "+result);
+    }
+
+    @Test
+    public void testDesr(){
+        Long result = redisDao.decrValue(GoodsKey.getGoodsDetail,"1");
+        System.out.println("减少后的值： "+result);
     }
 }

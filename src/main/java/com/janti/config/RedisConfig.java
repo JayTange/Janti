@@ -8,30 +8,75 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
+ * redis配置
+ *
  * @author tangj
  * @date 2018/3/7 22:44
  */
 @Configuration
+@ConfigurationProperties("redis")
 public class RedisConfig {
-    @Value("spring.redis.host")
     private String host;
-    @Value("spring.redis.port")
     private int port;
-    @Value("spring.redis.timeout")
     private int timeout;
-    @Value("spring.redis.password")
-    private String password;
+    private int maxIdle;
+    private int minIdle;
+    private int maxWait;
+    private int maxTotal;
 
-    @Bean
-    public JedisPoolConfig getRedisConfig() {
-        JedisPoolConfig config = new JedisPoolConfig();
-        return config;
+    public String getHost() {
+        return host;
     }
 
-    @Bean
-    public JedisPool JedisPoolBean() {
-        JedisPoolConfig jedisPoolConfig = getRedisConfig();
-        JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, password);
-        return jedisPool;
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public int getTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
+    }
+
+    public int getMaxIdle() {
+        return maxIdle;
+    }
+
+    public void setMaxIdle(int maxIdle) {
+        this.maxIdle = maxIdle;
+    }
+
+    public int getMinIdle() {
+        return minIdle;
+    }
+
+    public void setMinIdle(int minIdle) {
+        this.minIdle = minIdle;
+    }
+
+    public int getMaxWait() {
+        return maxWait;
+    }
+
+    public void setMaxWait(int maxWait) {
+        this.maxWait = maxWait;
+    }
+
+    public int getMaxTotal() {
+        return maxTotal;
+    }
+
+    public void setMaxTotal(int maxTotal) {
+        this.maxTotal = maxTotal;
     }
 }

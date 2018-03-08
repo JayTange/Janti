@@ -98,7 +98,7 @@
             },
             success: function (result) {
                 layer.closeAll();
-                if (result && result.success) {
+                if (result.success) {
                     layer.msg("成功");
                     window.location.href = "/goods/to_list";
                 } else {
