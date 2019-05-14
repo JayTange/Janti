@@ -13,7 +13,7 @@ $(document).ready(function () {
     $('#tags').tagsInput({
         width: '100%',
         height: '35px',
-        defaultText: '请输入文章标签'
+        defaultText: '实时索引速度'
     });
 
     $('.toggle').toggles({
